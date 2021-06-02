@@ -8,6 +8,7 @@ import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
+import javax.inject.Named
 import javax.inject.Singleton
 
 @Module
@@ -19,7 +20,8 @@ object AppModule {
 
     @Singleton
     @Provides
-    fun providePerPage() = Constants.API_PARAMETER_VALUE
+    @Named("pageCount")
+    fun providePageCount() = Constants.API_PARAMETER_VALUE
 
     @Singleton
     @Provides

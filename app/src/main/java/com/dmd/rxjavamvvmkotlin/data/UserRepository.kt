@@ -8,7 +8,8 @@ import javax.inject.Singleton
 @Singleton
 class UserRepository @Inject constructor(private var api: UsersApi){
     @Inject
-    lateinit var perPage: String //DI used for much more cleaner code
+    @Named("pageCount")
+    lateinit var pageCount: String //DI used for much more cleaner code
 
-    suspend fun getUsers() = api.getUsers(perPage)
+    suspend fun getUsers() = api.getUsers(pageCount)
 }
