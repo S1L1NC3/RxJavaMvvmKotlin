@@ -2,11 +2,14 @@ package com.dmd.rxjavamvvmkotlin.di
 
 import com.dmd.rxjavamvvmkotlin.api.UsersApi
 import com.dmd.rxjavamvvmkotlin.constants.Constants
+import com.dmd.rxjavamvvmkotlin.util.NetworkUtil
+import com.dmd.rxjavamvvmkotlin.util.PreferencesUtil
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
 import retrofit2.Retrofit
+import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import retrofit2.converter.gson.GsonConverterFactory
 import javax.inject.Named
 import javax.inject.Singleton
@@ -25,10 +28,19 @@ object AppModule {
 
     @Singleton
     @Provides
+    fun provideNetworkUtil() = NetworkUtil()
+
+    @Singleton
+    @Provides
+    fun providePreferencesUtil() = PreferencesUtil()
+
+    @Singleton
+    @Provides
     fun provideRetrofit(BASE_URL: String): UsersApi =
         Retrofit.Builder()
             .baseUrl(BASE_URL)
             .addConverterFactory(GsonConverterFactory.create())
+            .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
             .build()
             .create(UsersApi::class.java)
 }

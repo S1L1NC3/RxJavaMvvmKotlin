@@ -5,6 +5,8 @@ import android.widget.TextView
 import androidx.databinding.BindingAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.bumptech.glide.load.engine.DiskCacheStrategy
+import com.dmd.rxjavamvvmkotlin.R
 import com.dmd.rxjavamvvmkotlin.models.Data
 
 object BindingAdapter {
@@ -26,7 +28,12 @@ object BindingAdapter {
     @BindingAdapter("app:src")
     fun setSrc(imageView: ImageView, url: String){
         if (url.isNotEmpty()){
-            Glide.with(imageView.context).load(url).into(imageView)
+            Glide.with(imageView.context)
+                .load(url)
+                .diskCacheStrategy(DiskCacheStrategy.ALL)
+                .into(imageView)
+        } else {
+            Glide.with(imageView.context).load(R.drawable.pika).into(imageView)
         }
     }
 
@@ -37,7 +44,7 @@ object BindingAdapter {
         textView.apply {
             text = valueToArrange
         }
-
     }
+
 
 }

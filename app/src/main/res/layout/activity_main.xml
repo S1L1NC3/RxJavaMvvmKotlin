@@ -6,7 +6,7 @@
     <data>
         <variable
             name="userViewModel"
-            type="com.dmd.rxjavamvvmkotlin.UserViewModel"/>
+            type="com.dmd.rxjavamvvmkotlin.vm.UserViewModel"/>
     </data>
 
     <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
@@ -19,9 +19,37 @@
             android:layout_height="match_parent"
             tools:context=".MainActivity">
 
+            <TextView
+                android:visibility="gone"
+                android:id="@+id/activity_error_main"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:text="@string/there_is_a_error"
+                android:textColor="@color/textColor"
+                android:textSize="25sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ProgressBar
+                android:id="@+id/activity_loading_main"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:visibility="gone"
+                android:layout_margin="100dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+
             <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_activity_main"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
+                android:visibility="visible"
                 app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"

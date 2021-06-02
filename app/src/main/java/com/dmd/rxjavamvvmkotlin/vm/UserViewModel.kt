@@ -1,4 +1,4 @@
-package com.dmd.rxjavamvvmkotlin
+package com.dmd.rxjavamvvmkotlin.vm
 
 import android.util.Log
 import androidx.lifecycle.LiveData
@@ -16,6 +16,10 @@ class UserViewModel @Inject constructor(
     private val repository: UserRepository
 ): ViewModel(){
     private val _response = MutableLiveData<UsersResponse>()
+    val dataError = MutableLiveData<Boolean>()
+    val dataLoading = MutableLiveData<Boolean>()
+    val dataSuccess = MutableLiveData<Boolean>()
+
     val responseUsers: LiveData<UsersResponse>
         get() = _response
 
@@ -27,12 +31,19 @@ class UserViewModel @Inject constructor(
         getUsers()
     }
 
+
     private fun getUsers() = viewModelScope.launch {
+        dataLoading.postValue(true) //Coroutine start -> loading
         repository.getUsers().let {response ->
             if (response.isSuccessful){
                 _response.postValue(response.body())
+                dataSuccess.postValue(true) // success -> true
+                dataError.postValue(false) // success -> error -> false
+                dataLoading.postValue(false) // success -> loading -> false
             }else{
-                Log.d("ServiceResponseTag", "getUsers Error: ${response.code()}")
+                dataSuccess.postValue(false) // success -> false
+                dataError.postValue(true)  // error -> true
+                dataLoading.postValue(false) // loading -> false
             }
         }
     }
