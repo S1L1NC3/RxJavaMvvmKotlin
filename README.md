@@ -21,12 +21,14 @@ Here is the task that you wanted from me according to requirements
 <li><b>targetSdkVersion:</b> 30 (Android 11) </li>
 <li><b>versionCode:</b> 1 </li>
 <li><b>versionName:</b> 1.0 </li>
+<li><b>For API Calls:</b> Coroutines & Retrofit used </li>
 <li><b>Type Of Layouts Used:</b> ConstraintLayout & SwipeRefreshLayout </li>
 </ul>
 
 
 <h2>Commit History</h2>
 <ul>
-<li><b>Last Commit:</b> jCenter() removed (deprecated soon) & models added & DependencyInjection used & Constants created for API things</li>
+<li><b>Last Commit:</b> AppModule modified & new dependencies | libraries added & README.md modified & UserRepository created & UsersApi created & UserViewModel created and applied dependency injection</li>
+<li><b>05d145e:</b> jCenter() removed (deprecated soon) & models added & DependencyInjection used & Constants created for API things</li>
 <li><b>4285b8a:</b> Initial Commit </li>
 </ul>
