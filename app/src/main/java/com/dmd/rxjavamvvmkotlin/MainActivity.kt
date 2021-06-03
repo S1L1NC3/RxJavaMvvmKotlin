@@ -7,6 +7,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import com.dmd.rxjavamvvmkotlin.adapter.UserAdapter
 import com.dmd.rxjavamvvmkotlin.databinding.ActivityMainBinding
+import com.dmd.rxjavamvvmkotlin.util.IntentUtil
 import com.dmd.rxjavamvvmkotlin.util.NetworkUtil
 import com.dmd.rxjavamvvmkotlin.util.PreferencesUtil
 import com.dmd.rxjavamvvmkotlin.vm.UserViewModel
@@ -22,6 +23,9 @@ class MainActivity : AppCompatActivity() {
     @Inject
     lateinit var preferencesUtil: PreferencesUtil
 
+    @Inject
+    lateinit var intentUtil: IntentUtil
+
     private lateinit var binding: ActivityMainBinding
 
     private val viewModel: UserViewModel by viewModels()
@@ -29,13 +33,13 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
 
-
+        //If internet available then directly connected to viewModel
         if(networkUtil.isInternetAvailable(context = applicationContext)){
             binding.lifecycleOwner = this
             binding.userViewModel = viewModel
             binding.activitySrlMain.setOnRefreshListener { viewModel.refreshData() }
             setupObservers()
-        } else {
+        } else { //otherwise get data from shared prefs
             val offlineData = preferencesUtil.retrieveObject(applicationContext)
             if (binding.rvActivityMain.adapter == null){
                 val userAdapter = UserAdapter()
@@ -74,6 +78,8 @@ class MainActivity : AppCompatActivity() {
 
         viewModel.dataSuccess.observe(this, { success ->
             success?.let {
+                intentUtil.openIntentWithExtra(this@MainActivity, DetailActivity::class.java, viewModel.responseUsers.value!!.data[0])
+                intentUtil.openIntent(this@MainActivity,DetailActivity::class.java) //arrange to on item click and put data
                 preferencesUtil.putObject(applicationContext, viewModel.responseUsers.value!!.data)
                 binding.rvActivityMain.visibility = View.VISIBLE
                 binding.activitySrlMain.isRefreshing = false

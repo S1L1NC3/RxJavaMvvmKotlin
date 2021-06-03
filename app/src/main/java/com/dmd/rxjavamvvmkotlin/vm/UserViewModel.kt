@@ -23,11 +23,11 @@ class UserViewModel @Inject constructor(
     val responseUsers: LiveData<UsersResponse>
         get() = _response
 
-    init {
+    init { //on initialize
         getUsers()
     }
 
-    fun refreshData(){ //Might be helpful for swipe refresh
+    fun refreshData(){ //Might be helpful for swipe refresh, and it did
         getUsers()
     }
 

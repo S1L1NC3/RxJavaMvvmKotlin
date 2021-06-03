@@ -6,11 +6,11 @@ import android.net.NetworkCapabilities
 import android.os.Build
 
 class NetworkUtil {
-    fun isInternetAvailable(context: Context): Boolean {
+    fun isInternetAvailable(context: Context): Boolean { //Method is for checking internet check
         var result = false
         val connectivityManager =
             context.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) { //if version is higher than M (Marshmallow), activeNetworkInfo is deprecated
             val networkCapabilities = connectivityManager.activeNetwork ?: return false
             val actNw =
                 connectivityManager.getNetworkCapabilities(networkCapabilities) ?: return false
@@ -21,7 +21,7 @@ class NetworkUtil {
                 else -> false
             }
         } else {
-            connectivityManager.run {
+            connectivityManager.run { //otherwise use activeNetworkInfo to reach isInternetAvailable
                 connectivityManager.activeNetworkInfo?.run {
                     result = when (type) {
                         ConnectivityManager.TYPE_WIFI -> true

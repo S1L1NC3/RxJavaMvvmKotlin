@@ -11,5 +11,5 @@ class UserRepository @Inject constructor(private var api: UsersApi){
     @Named("pageCount")
     lateinit var pageCount: String //DI used for much more cleaner code
 
-    suspend fun getUsers() = api.getUsers(pageCount)
+    suspend fun getUsers() = api.getUsers(pageCount) //suspend function cause of coroutines on retrofit calls usage
 }

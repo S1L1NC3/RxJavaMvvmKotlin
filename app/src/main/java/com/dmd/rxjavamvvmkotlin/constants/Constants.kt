@@ -7,4 +7,5 @@ object Constants {
     const val API_PARAMETER_VALUE= "10"
     const val SHARED_PREF_KEY= "listJsonLocation"
     const val DEFAULT_SHARED_PREF= "[{}]"
+    const val EXTRA_KEY = "intentExtraKey"
 }

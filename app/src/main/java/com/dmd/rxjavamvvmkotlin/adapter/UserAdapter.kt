@@ -1,4 +1,4 @@
-package com.dmd.rxjavamvvmkotlin.adapter
+    package com.dmd.rxjavamvvmkotlin.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -17,7 +17,7 @@ class UserAdapter : RecyclerView.Adapter<UserAdapter.UserViewHolder>(){
         return UserViewHolder(binding)
     }
 
-    override fun onBindViewHolder(holder: UserViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: UserViewHolder, position: Int) { //DataBinding used for much more easier & simple code insted of x.text = text or y.text = text
         val currentUser = adapterDataList[position]
         holder.binding.user = currentUser
     }
@@ -29,7 +29,7 @@ class UserAdapter : RecyclerView.Adapter<UserAdapter.UserViewHolder>(){
     }
 
 
-    override fun getItemCount(): Int {
+    override fun getItemCount(): Int { //returning user count to adapter size
         return adapterDataList.size
     }
 }

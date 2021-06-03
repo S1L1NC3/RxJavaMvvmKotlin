@@ -7,7 +7,7 @@ import retrofit2.http.GET
 import retrofit2.http.Query
 
 interface UsersApi {
-    @GET(Constants.API_ENDPOINT)
+    @GET(Constants.API_ENDPOINT) // Constants used for easier code refactor & change
     suspend fun getUsers(
         @Query(Constants.API_PARAMETER) per_page: String
     ) : Response<UsersResponse>

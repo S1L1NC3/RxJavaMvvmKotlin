@@ -2,6 +2,7 @@ package com.dmd.rxjavamvvmkotlin.di
 
 import com.dmd.rxjavamvvmkotlin.api.UsersApi
 import com.dmd.rxjavamvvmkotlin.constants.Constants
+import com.dmd.rxjavamvvmkotlin.util.IntentUtil
 import com.dmd.rxjavamvvmkotlin.util.NetworkUtil
 import com.dmd.rxjavamvvmkotlin.util.PreferencesUtil
 import dagger.Module
@@ -16,7 +17,7 @@ import javax.inject.Singleton
 
 @Module
 @InstallIn(SingletonComponent::class)
-object AppModule {
+object AppModule { //Instead of creating instance every time of an class, we created Singleton and it is much better for memory management
     @Singleton
     @Provides
     fun provideBaseUrl() = Constants.BASE_URL
@@ -29,6 +30,10 @@ object AppModule {
     @Singleton
     @Provides
     fun provideNetworkUtil() = NetworkUtil()
+
+    @Singleton
+    @Provides
+    fun provideIntentUtil() = IntentUtil()
 
     @Singleton
     @Provides

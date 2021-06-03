@@ -1,23 +1,24 @@
 <h2>Summary</h2>
 Hello,
 
-Here is the task that you wanted from me according to requirements, tried to work with small commits much as I can so it will be easier to track. Instead of using setValue(), I prefer postValue()
-reason to that setValue() has to be called in main thread
+Here is the task that you wanted from me according to requirements, tried to work with small commits much as I can so it will be easier to track. Instead of using setValue(), I prefer 
+postValue() reason to that setValue() has to be called in main thread. Instead of (For ex. component.text = object.firs_name), I used Data Binding all view, so it removes boiler plate code
+from ViewHolder. 
 
 
 <h2>3rd Party Libraries</h2>
 <ul>
-<li><b>Retrofit:</b> Implementation Added (Not Used Yet) </li> 
-<li><b>GSON:</b> Implementation Added (Not Used Yet) </li>
+<li><b>Retrofit:</b> Added & Used for REST API connections </li> 
+<li><b>GSON:</b> Added for serializing API response from Retrofit, also used for SharedPreferences offline storage </li>
 <li><b>Glide:</b> Implementation Added (Not Used Yet) </li>
-<li><b>SwipeRefreshLayout:</b> Will be added </li>
-<li><b>RxJava & RxAndroid:</b> Will be added </li>
+<li><b>SwipeRefreshLayout:</b> Added working </li>
+<li><b>RxJava & RxAndroid:</b> Added and observed potential outcomes </li>
 </ul>
 
 
 <h2>Technical Stuff</h2>
 <ul>
-<li><b>Target Pattern:</b> MVVM (Not Achieved Yet) </li>
+<li><b>Target Pattern:</b> MVVM </li>
 <li><b>minSdkVersion:</b> 23 </li>
 <li><b>targetSdkVersion:</b> 30 (Android 11) </li>
 <li><b>versionCode:</b> 1 </li>
@@ -29,7 +30,8 @@ reason to that setValue() has to be called in main thread
 
 <h2>Commit History</h2>
 <ul>
-<li><b>Last Commit:</b> pika.png added (all sizes) &  BindingAdapter modified for offline situation &  Potential dataError - loading - success situation handled &  NetworkUtil created for isInternetAvailable and also for older versions supported, and also again :D Dependency Injection integrated & PreferencesUtil created for Offline storage and implemented to DI & MainActivity.kt modified and keep it simple & Constants modified for offline storage & DetailActivity.kt created</li>
+<li><b>Last Commit:</b> IntentUtil modified (added new methods) & IntentUtil migrated to DI & Added comments much as I can </li>
+<li><b>e269b64:</b> pika.png added (all sizes) &  BindingAdapter modified for offline situation &  Potential dataError - loading - success situation handled &  NetworkUtil created for isInternetAvailable and also for older versions supported, and also again :D Dependency Injection integrated & PreferencesUtil created for Offline storage and implemented to DI & MainActivity.kt modified and keep it simple & Constants modified for offline storage & DetailActivity.kt created</li>
 <li><b>a1672ee:</b> viewBinding and dataBinding added & AppModule.kt modified & colors.xml added for Night  version & MainActivity.kt connected to lifecycle & row_user changed to Data Binding & UserAdapter. created & Bug-fix</li>
 <li><b>ef7f10e:</b> AppModule modified & new dependencies | libraries added & README.md modified & UserRepository created & UsersApi created & UserViewModel created and applied dependency injection</li>
 <li><b>05d145e:</b> jCenter() removed (deprecated soon) & models added & DependencyInjection used & Constants created for API things</li>
