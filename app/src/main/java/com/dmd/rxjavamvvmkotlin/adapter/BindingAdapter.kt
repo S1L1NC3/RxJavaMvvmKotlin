@@ -53,7 +53,10 @@ object BindingAdapter {
     @BindingAdapter("app:srcForDetails")
     fun setSrcForDetails(imageView: ImageView, user: Data){
         if (user.avatar.isNotEmpty()){
-           var baseSixtyFourValueForImage: String = user.avatar
+            Glide.with(imageView.context)
+                .load(user.avatar)
+                .diskCacheStrategy(DiskCacheStrategy.ALL)
+                .into(imageView)
         } else {
             Glide.with(imageView.context).load(R.drawable.pika).into(imageView)
         }
