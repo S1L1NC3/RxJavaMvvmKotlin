@@ -7,6 +7,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import com.dmd.rxjavamvvmkotlin.adapter.UserAdapter
 import com.dmd.rxjavamvvmkotlin.databinding.ActivityMainBinding
+import com.dmd.rxjavamvvmkotlin.util.ImageUtil
 import com.dmd.rxjavamvvmkotlin.util.IntentUtil
 import com.dmd.rxjavamvvmkotlin.util.NetworkUtil
 import com.dmd.rxjavamvvmkotlin.util.PreferencesUtil
@@ -22,6 +23,10 @@ class MainActivity : AppCompatActivity() {
 
     @Inject
     lateinit var preferencesUtil: PreferencesUtil
+
+    @Inject
+    lateinit var imageUtil: ImageUtil
+
 
     @Inject
     lateinit var intentUtil: IntentUtil
@@ -78,8 +83,6 @@ class MainActivity : AppCompatActivity() {
 
         viewModel.dataSuccess.observe(this, { success ->
             success?.let {
-                intentUtil.openIntentWithExtra(this@MainActivity, DetailActivity::class.java, viewModel.responseUsers.value!!.data[0])
-                intentUtil.openIntent(this@MainActivity,DetailActivity::class.java) //arrange to on item click and put data
                 preferencesUtil.putObject(applicationContext, viewModel.responseUsers.value!!.data)
                 binding.rvActivityMain.visibility = View.VISIBLE
                 binding.activitySrlMain.isRefreshing = false

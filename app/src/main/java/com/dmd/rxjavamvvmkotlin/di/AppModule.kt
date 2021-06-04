@@ -2,6 +2,7 @@ package com.dmd.rxjavamvvmkotlin.di
 
 import com.dmd.rxjavamvvmkotlin.api.UsersApi
 import com.dmd.rxjavamvvmkotlin.constants.Constants
+import com.dmd.rxjavamvvmkotlin.util.ImageUtil
 import com.dmd.rxjavamvvmkotlin.util.IntentUtil
 import com.dmd.rxjavamvvmkotlin.util.NetworkUtil
 import com.dmd.rxjavamvvmkotlin.util.PreferencesUtil
@@ -30,6 +31,10 @@ object AppModule { //Instead of creating instance every time of an class, we cre
     @Singleton
     @Provides
     fun provideNetworkUtil() = NetworkUtil()
+
+    @Singleton
+    @Provides
+    fun provideImageUtil() = ImageUtil()
 
     @Singleton
     @Provides

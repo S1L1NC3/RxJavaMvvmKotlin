@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">RxJavaMvvmKotlin</string>
     <string name="there_is_a_error">There Is A Error Happened.\nTry Again</string>
+    <string name="default_content_description" translatable="false">defValueToContentDesc</string>
 </resources>

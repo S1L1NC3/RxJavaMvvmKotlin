@@ -1,4 +1,4 @@
-    package com.dmd.rxjavamvvmkotlin.adapter
+package com.dmd.rxjavamvvmkotlin.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -6,7 +6,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.dmd.rxjavamvvmkotlin.databinding.RowUserBinding
 import com.dmd.rxjavamvvmkotlin.models.Data
 
-class UserAdapter : RecyclerView.Adapter<UserAdapter.UserViewHolder>(){
+    class UserAdapter : RecyclerView.Adapter<UserAdapter.UserViewHolder>(){
     private var adapterDataList: ArrayList<Data> = arrayListOf()
 
     class UserViewHolder(val binding: RowUserBinding): RecyclerView.ViewHolder(binding.root)
@@ -17,7 +17,7 @@ class UserAdapter : RecyclerView.Adapter<UserAdapter.UserViewHolder>(){
         return UserViewHolder(binding)
     }
 
-    override fun onBindViewHolder(holder: UserViewHolder, position: Int) { //DataBinding used for much more easier & simple code insted of x.text = text or y.text = text
+    override fun onBindViewHolder(holder: UserViewHolder, position: Int) { //DataBinding used for much more easier & simple code instead of x.text = text or y.text = text
         val currentUser = adapterDataList[position]
         holder.binding.user = currentUser
     }

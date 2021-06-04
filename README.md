@@ -30,7 +30,8 @@ from ViewHolder.
 
 <h2>Commit History</h2>
 <ul>
-<li><b>Last Commit:</b> IntentUtil modified (added new methods) & IntentUtil migrated to DI & Added comments much as I can </li>
+<li><b>Last Commit:</b> ImageUtil() Created for image to base64 and insert into SharePreferences and get form offline &  Lint checkup made & styles.xml created & onItemClick written</li>
+<li><b>4eed246:</b> IntentUtil modified (added new methods) & IntentUtil migrated to DI & Added comments much as I can </li>
 <li><b>e269b64:</b> pika.png added (all sizes) &  BindingAdapter modified for offline situation &  Potential dataError - loading - success situation handled &  NetworkUtil created for isInternetAvailable and also for older versions supported, and also again :D Dependency Injection integrated & PreferencesUtil created for Offline storage and implemented to DI & MainActivity.kt modified and keep it simple & Constants modified for offline storage & DetailActivity.kt created</li>
 <li><b>a1672ee:</b> viewBinding and dataBinding added & AppModule.kt modified & colors.xml added for Night  version & MainActivity.kt connected to lifecycle & row_user changed to Data Binding & UserAdapter. created & Bug-fix</li>
 <li><b>ef7f10e:</b> AppModule modified & new dependencies | libraries added & README.md modified & UserRepository created & UsersApi created & UserViewModel created and applied dependency injection</li>

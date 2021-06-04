@@ -7,6 +7,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.dmd.rxjavamvvmkotlin.data.UserRepository
 import com.dmd.rxjavamvvmkotlin.models.UsersResponse
+import com.dmd.rxjavamvvmkotlin.util.PreferencesUtil
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import javax.inject.Inject
