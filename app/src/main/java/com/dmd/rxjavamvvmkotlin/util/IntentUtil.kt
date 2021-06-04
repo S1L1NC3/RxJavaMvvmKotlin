@@ -7,12 +7,6 @@ import com.dmd.rxjavamvvmkotlin.models.Data
 
 
 class IntentUtil {
-
-    fun openIntent(from: Context, to: Class<*>){
-        val intent = Intent(from, to)
-        from.startActivity(intent)
-    }
-
     fun openIntentWithExtra(from: Context, to: Class<*>, extra: Data){
         val intent = Intent(from, to)
         intent.putExtra(Constants.EXTRA_KEY, extra)

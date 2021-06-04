@@ -30,7 +30,8 @@ from ViewHolder.
 
 <h2>Commit History</h2>
 <ul>
-<li><b>Last Commit:</b> BindingAdapter also applied Glide & styles.xml modified</li>
+<li><b>Last Commit:</b> Lint Inspection used to clear code a bit more & Unused imports of libraries removed & Unused imports removed</li>
+<li><b>db7c8e8:</b> BindingAdapter also applied Glide & styles.xml modified</li>
 <li><b>463cbe2:</b> ImageUtil() Created for image to base64 and insert into SharePreferences and get form offline &  Lint checkup made & styles.xml created & onItemClick written</li>
 <li><b>4eed246:</b> IntentUtil modified (added new methods) & IntentUtil migrated to DI & Added comments much as I can </li>
 <li><b>e269b64:</b> pika.png added (all sizes) &  BindingAdapter modified for offline situation &  Potential dataError - loading - success situation handled &  NetworkUtil created for isInternetAvailable and also for older versions supported, and also again :D Dependency Injection integrated & PreferencesUtil created for Offline storage and implemented to DI & MainActivity.kt modified and keep it simple & Constants modified for offline storage & DetailActivity.kt created</li>
