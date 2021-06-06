@@ -5,6 +5,8 @@ Here is the task that you wanted from me according to requirements, tried to wor
 postValue() reason to that setValue() has to be called in main thread. Instead of (For ex. component.text = object.firs_name), I used Data Binding all view, so it removes boiler plate code
 from ViewHolder. 
 
+Also if you see something improvable please feel free to say, I'm always open to constructive criticism.
+
 
 <h2>3rd Party Libraries</h2>
 <ul>
